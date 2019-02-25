@@ -356,8 +356,10 @@ class Video extends Component {
     } = this.props
 
     const inline = {
-      height: inlineHeight,
-      alignSelf: 'stretch'
+      flex:1,
+      width: '100%'
+      // height: inlineHeight,
+      // alignSelf: 'stretch'
     }
 
     const setTheme = {
