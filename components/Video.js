@@ -56,7 +56,7 @@ class Video extends Component {
     super(props)
     this.state = {
       paused: !props.autoPlay,
-      muted: false,
+      muted: true,
       fullScreen: false,
       inlineHeight: Win.width * 0.5625,
       loading: false,
@@ -80,10 +80,6 @@ class Video extends Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.paused !== nextProps.paused) {
       this.setState({ paused: nextProps.paused });
-    }
-
-    if (this.state.muted !== nextProps.muted) {
-      this.setState({ muted: nextProps.muted });
     }
   }
 
