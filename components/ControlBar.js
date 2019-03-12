@@ -35,7 +35,7 @@ const ControlBar = (props) => {
         progress={progress}
         theme={{ scrubberThumb: theme.scrubberThumb, scrubberBar: theme.scrubberBar }}
       />
-      <ToggleIcon
+      <ToggleMuteIcon
         paddingLeft
         theme={theme.volume}
         onPress={() => props.toggleMute()}
