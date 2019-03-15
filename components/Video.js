@@ -56,7 +56,7 @@ class Video extends Component {
     super(props)
     this.state = {
       paused: !props.autoPlay,
-      muted: true,
+      muted: this.props.muted,
       fullScreen: false,
       inlineHeight: Win.width * 0.5625,
       loading: false,
@@ -80,6 +80,10 @@ class Video extends Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.paused !== nextProps.paused) {
       this.setState({ paused: nextProps.paused });
+    }
+
+    if (this.props.muted !== nextProps.muted) {
+      this.setState({ muted: nextProps.muted });
     }
   }
 
@@ -282,7 +286,9 @@ class Video extends Component {
   }
 
   toggleMute() {
-    this.setState({ muted: !this.state.muted })
+    this.setState({ muted: !this.state.muted }, () => {
+      this.props.toggleMute()
+    })
   }
 
   seek(percent) {
@@ -497,6 +503,7 @@ Video.defaultProps = {
   rotateToFullScreen: false,
   lockPortraitOnFsExit: false,
   useTextureView: false,
+  muted: true,
   onEnd: () => {},
   onLoad: () => {},
   onPlay: () => {},
@@ -511,7 +518,8 @@ Video.defaultProps = {
   logo: undefined,
   title: '',
   theme: defaultTheme,
-  resizeMode: 'contain'
+  resizeMode: 'contain',
+  toggleMute: () => {}
 }
 
 export default Video
