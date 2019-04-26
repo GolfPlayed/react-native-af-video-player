@@ -386,7 +386,8 @@ class Video extends Component {
           fullScreen ?
             (styles.fullScreen, { height: this.animFullscreen })
             : { height: this.animInline },
-          fullScreen ? null : style
+          style
+          // fullScreen ? null : style
         ]}
       >
         <StatusBar hidden={fullScreen} />
