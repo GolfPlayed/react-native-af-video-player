@@ -366,7 +366,9 @@ class Video extends Component {
       onMorePress,
       inlineOnly,
       playInBackground,
-      playWhenInactive
+      playWhenInactive,
+      onFullScreen,
+      isFullScreen
     } = this.props
 
     const inline = {
@@ -439,6 +441,8 @@ class Video extends Component {
           onMorePress={() => onMorePress()}
           theme={setTheme}
           inlineOnly={inlineOnly}
+          onFullScreen={onFullScreen}
+          isFullScreen={isFullScreen}
         />
       </Animated.View>
     )

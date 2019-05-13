@@ -127,7 +127,9 @@ class Controls extends Component {
       currentTime,
       duration,
       theme,
-      inlineOnly
+      inlineOnly,
+      isFullScreen,
+      onFullScreen
     } = this.props
 
     const { center, ...controlBar } = theme
@@ -144,7 +146,7 @@ class Controls extends Component {
           />
           <Animated.View style={[styles.flex, { transform: [{ scale: this.scale }] }]}>
             <PlayButton
-              onPress={() => this.props.togglePlay()}
+              onPress={() => isFullScreen ? this.props.togglePlay() : onFullScreen(true)}
               paused={paused}
               loading={loading}
               theme={center}
