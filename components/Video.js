@@ -99,7 +99,7 @@ class Video extends Component {
   onLoad(data) {
     if (!this.state.loading) return
     this.props.onLoad(data)
-    const { height, width } = data.naturalSize   
+    const { height, width } = data.naturalSize
     const ratio = height === 'undefined' && width === 'undefined' ?
       (9 / 16) : (height / width)
     const inlineHeight = this.props.lockRatio ?
@@ -247,7 +247,7 @@ class Video extends Component {
 
   toggleFS() {
     this.props.onFullScreen(true);
-    
+
     // this.setState({ fullScreen: !this.state.fullScreen }, () => {
     //   Orientation.getOrientation((e, orientation) => {
     //     if (this.state.fullScreen) {
@@ -397,7 +397,7 @@ class Video extends Component {
         <StatusBar hidden={fullScreen} />
         {
           ((loading && placeholder) || currentTime < 0.01) &&
-          <Image resizeMode="cover" style={styles.image} {...checkSource(placeholder)} />
+          <Image resizeMode="contain" style={styles.image} {...checkSource(placeholder)} />
         }
         <VideoPlayer
           {...checkSource(url)}
